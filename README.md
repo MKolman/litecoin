@@ -1,10 +1,10 @@
-# Litecoin 0.17.1 in Docker
+# Litecoin 0.18.1 in Docker
 This repository contains everything that you need to run Litecoin in Docker and Kubernetes with a simple Jenkins Pipeline script.
 
 ## Requirements
 - Docker - your Jenkins server needs to have docker binary installed
 - kubectl - it should be also available in your Jenkins server
-- kubeconfig - separated config for your cluster must be located in ~/.kube/ directory of your Jenkins server (if you are using single kubeconfig you need to edit [Jenkinsfile](https://github.com/airstand/litecoin/blob/master/Jenkinsfile#L27) addinf `--context NAME_OF_CONTEXT` in this repository )
+- kubeconfig - separated config for your cluster must be located in ~/.kube/ directory of your Jenkins server (if you are using single kubeconfig you need to edit [Jenkinsfile](https://github.com/kantsuw/litecoin/blob/master/Jenkinsfile#L27) addinf `--context NAME_OF_CONTEXT` in this repository )
 
 
 ## Dockerfile

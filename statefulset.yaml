@@ -18,7 +18,7 @@ metadata:
   labels: &litecoin-labels
     app: litecoin
     component: daemon
-    version: '0.17.1'
+    version: '0.18.1'
 spec:
   selector:
     matchLabels: *litecoin-labels
@@ -43,7 +43,7 @@ spec:
         effect: NoSchedule
       containers:
         - name: main
-          image: airstand/litecoin:0.17.1
+          image: kantsuw/litecoin:0.18.1
           imagePullPolicy: IfNotPresent
           volumeMounts:
           - name: litecoin-data

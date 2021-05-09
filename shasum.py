@@ -7,7 +7,7 @@ import sys
 
 sha256 = hashlib.sha256()
 headers = {'User-Agent': 'curl/7.64.1'}
-url = 'https://download.litecoin.org/litecoin-0.17.1/linux/litecoin-0.17.1-linux-signatures.asc'
+url = 'https://download.litecoin.org/litecoin-0.18.1/linux/litecoin-0.18.1-linux-signatures.asc'
 
 def get_shasum(filename):
   with open(filename, 'rb') as f:
@@ -27,7 +27,7 @@ file.close()
 
 with open('/tmp/litecoin-signatures.asc') as f:
   for line in f:
-    if 'litecoin-0.17.1-x86_64-linux-gnu.tar.gz' in line:
+    if 'litecoin-0.18.1-x86_64-linux-gnu.tar.gz' in line:
         shasum = line.strip().split()[0]
         if shasum == get_shasum('/tmp/litecoin.tar.gz'):
           print("SHASUM check succeeded!")

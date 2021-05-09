@@ -1,4 +1,4 @@
-def litecoin_repo = 'https://github.com/airstand/litecoin.git'
+def litecoin_repo = 'https://github.com/kantsuw/litecoin.git'
 
 properties([
   parameters([

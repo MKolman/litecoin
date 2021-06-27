@@ -3,8 +3,8 @@
 #use ubuntu 18.04 as based image and call it packager
 FROM ubuntu:18.04 as packager
 
-#Add shasum.py to for tool to check shasum 
-ADD shasum.py /tmp/
+# Add shasum.py and package signature file to check shasum 
+ADD shasum.py litecoin-0.18.1-linux-signatures.asc /tmp/
 
 #Download litecoin 0.18.1 + litecoin 0.18.1 signatures and compare shasum
 RUN apt-get update \

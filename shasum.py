@@ -2,21 +2,19 @@
 
 import hashlib
 
-platform = '-x86_64-linux-gnu.tar.gz'
-sha256 = hashlib.sha256()
-
 def calculate_shasum(filename):
   """Calculate SHA256 hash of a file."""
+  sha256 = hashlib.sha256()
   with open(filename, 'rb') as f:
-      while True:
-          data = f.read()
-          if not data:
-              break
-          sha256.update(data)
+    while True:
+      data = f.read()
+      if not data:
+        break
+      sha256.update(data)
   return sha256.hexdigest()
 
-def read_shasum(filename):
-  """Read appropriate shasum from a .asc file."""
+def read_shasum(filename, platform='-x86_64-linux-gnu.tar.gz'):
+  """Read appropriate shasum from an .asc file."""
   with open(filename) as f:
     for line in f:
       if platform in line:

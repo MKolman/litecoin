@@ -36,3 +36,17 @@ This is a very simple Jenkinsfile using Groovy DSL. You need to specify:
   - `gcr.io/USERNAME/litecoin` for gcp
 
 Please read the Jenkins Server Requirements section for additional information about the kubeconfig customizations.
+
+# Note to reviewers
+This is my first ever interaction with Kubernetes. In my role at Google I work closely with our internal container scheduling system - Borg. It is what inspired Kubernetes but they still have different config language and terminology.
+
+I already bought myself a small server rack stand and to set up a few machines at home in order to get some first hand experience running Kubernetes. 
+
+I have never used Terraform before so I skipped that task.
+
+I've opted to use an existing solution for this problem, because solved problems don't need re-solving and existing code usually solved problems you didn't think of.
+
+Two major improvements I made to the code are
+* making `shasum.py` more readable and cleaner,
+* including sha256 signature file in the repo instead of downloading it for security reasons.
+  * Downloading the checksum protects us from file corruption during package download, but doesn't protect us from an attack if litecoin.org is compromised.

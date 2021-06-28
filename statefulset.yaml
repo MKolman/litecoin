@@ -1,20 +1,20 @@
 ---
-#Use individual namespace for litecoin
-#Namespace represent the logically groups and manages Kubernetes resources
+# Use individual namespace for litecoin
+# Namespace represent the logically groups and manages Kubernetes resources
 apiVersion: v1
 kind: Namespace
 metadata:
   name: litecoin  
 ---
-#Use specific service account for litecoin 
-#The service accounts inject authentication credentials into the pod to talk to the Kubernetes service
+# Use specific service account for litecoin 
+# The service accounts inject authentication credentials into the pod to talk to the Kubernetes service
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: litecoin
   namespace: litecoin
 ---
-#Statefulset of litecoin services deployment
+# Statefulset of litecoin services deployment
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -23,13 +23,13 @@ metadata:
   labels: &litecoin-labels
     app: litecoin
     component: daemon
-    #version of litecoin
+    # version of litecoin
     version: '0.18.1' 
 spec:
   selector:
     matchLabels: *litecoin-labels
   serviceName: litecoin
-  #Number of replicas
+  # Number of replicas
   replicas: 1  
   template:
     metadata:
@@ -55,7 +55,7 @@ spec:
           volumeMounts:
           - name: litecoin-data
             mountPath: "/home/litecoin/.litecoin"
-          #Resource limit              
+          # Resource limit              
           resources:  
             requests:
               memory: 256Mi
@@ -68,7 +68,7 @@ spec:
             initialDelaySeconds: 5
             timeoutSeconds: 3
             periodSeconds: 3 
-  #volumeClaim of service              
+  # volumeClaim of service              
   volumeClaimTemplates: 
     - metadata:
         name: litecoin-data
